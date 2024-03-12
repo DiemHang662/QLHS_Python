@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<style>
+body {
+background-color: white;
+}
+
+h1   {
+color: white;
+width: 550px;
+height: 35px;
+text-align: center;
+font-size: 30px;
+}
+
+li    {
+    text-align: center;
+    width:250px;
+    }
+
+li:hover {
+background-color: red;
+width: 250px;
+}
+
+.dropdown-item{
+font-size:15px;
+}
+
+.dropdown-item:hover{
+background-color:yellow;
+    color: green;
+    font-weight: bold;
+    }
+
+.footer{
+  text-align: center;
+  background-color: #444444;
+  color: white;
+    }
+
+  h3{
+  padding: 12px;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+    }
+
+    .column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+    .row {
+  display: flex;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+
+</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+        <h1>TRƯỜNG THPT TRẦN PHÚ</h1>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="fa fa-home"><strong>   Trang chủ</strong></i></a>
+    </li>
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="fa fa-server"><strong>   Tính năng</strong></i></a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{{ url_for('QLHS') }}">Quản lý học sinh</a>
+        <a class="dropdown-item" href="{{ url_for('QLLop') }}">Quản lý lớp</a>
+        <a class="dropdown-item" href="{{ url_for('QLDiem') }}">Quản lý điểm</a>
+        <a class="dropdown-item" href="{{ url_for('bao_cao_tong_ket') }}">Xem báo cáo tổng kết</a>
+      </div>
+    </li>
+
+      <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('index') }}"><i class="fa fa-arrow-circle-o-left"><strong>   Đăng xuất</strong></i></a>
+     </li>
+  </ul>
+</nav>
+
+<nav class="noidung">
+
+    <h3>GIỚI THIỆU VỀ TRƯỜNG</h3>
+    <div class="row">
+  <div class="column">
+    <img src="https://media.thuonghieucongluan.vn/uploads/2019_10_17/tran-phu1-1571290119.jpg" alt="1" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://www.giaoduc.edu.vn/upload/images/2011/11/11/truong-thpt-tran-phu-q-tan-phu-30-nam-vang-mai-mot-ngoi-truong_21.jpg" alt="2" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://www.giaoduc.edu.vn/upload/images/2011/11/11/truong-thpt-tran-phu-q-tan-phu-30-nam-vang-mai-mot-ngoi-truong_31.jpg" alt="3" style="width:100%">
+  </div>
+</div>
+    <div style ="padding: 10px; "><p>   Trường THPT Trần Phú được thành lập vào năm 1980 với danh nghĩa là phân hiệu của trường THPT Nguyễn Thượng Hiền. Một năm sau, trường chính thức mang tên trường THPT Trần Phú, tên của vị Tổng Bí thư đầu tiên của Đảng ta theo Quyết định số 261/QĐ-UB ngày 10 tháng 11 năm 1981 của UBND Thành phố Hồ Chí Minh.</p></div>
+
+</nav>
+
+</body>
+
+<footer class="footer">
+     <p>Trường THPT Trần Phú</p>
+    <p>Địa chỉ: 18 Đ. Lê Thúc Hoạch, Phú Thọ Hoà, Tân Phú, Thành phố Hồ Chí Minh</p>
+  <p>Email: THPTTranPhu@gmail.com</p>
+</footer>
+
+</html>

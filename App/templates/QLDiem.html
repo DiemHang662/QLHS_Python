@@ -1,0 +1,105 @@
+{% block header %}
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}
+<style>
+    body{
+    background-color: #EEEEEE;
+    }
+
+    h1{
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    color: red;
+    border-bottom: 3px solid black;
+    height: 100px;
+    }
+
+    h2{
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+    color: black;
+    }
+
+    h3{
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    color: black;
+    }
+
+    .tr, th, td{
+      width: 10%;
+      border:1px solid black;
+     text-align: center;
+    }
+        form div {
+            padding: 5px;
+
+        }
+
+</style>
+
+<h1>QUẢN LÝ ĐIỂM</h1>
+
+<a href="{{ url_for('index_1') }}" class="btn btn-success float-right"><i class="fa fa-arrow-circle-left">    Về trang chủ</i></a>
+
+    <div>
+    <form action="{{ url_for('QLDiem') }}" method="POST">
+        <h3>BẢNG ĐIỂM MÔN HỌC</h3>
+        <div class="form-group">
+            <label> Nhập mã học sinh cần xem điểm: </label>
+            <input type="text" name="MaHS" class="form-control" >
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Xem</button>
+    </form>
+</div>
+
+<div>
+    <h3>BẢNG ĐIỂM MÔN HỌC</h3>
+    {% if hs %}
+        <table class="table">
+            <tr>
+                <th>Lớp:  {{ hs.lop.TenLop }}</th>
+                <th>Môn: {{ diems[0].mon_hoc.TenMH if diems else 'N/A' }}</th>
+            </tr>
+
+            <tr>
+                <th>Học kỳ: {{ diems[0].hoc_ky.TenHK if diems else 'N/A' }}</th>
+                <th>Năm học: {{ diems[0].hoc_ky.NamHoc if diems else 'N/A' }}</th>
+            </tr>
+        </table>
+
+        <table class="table" >
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Họ tên</th>
+                    <th scope="col">Điểm 15'</th>
+                    <th scope="col">Điểm 1 tiết</th>
+                    <th scope="col">Điểm thi</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for diems in diems %}
+                    <tr>
+                        <td>{{ hs.HoTen }}</td>
+                        <td>{{ diems.diem15ps[0].DiemL1 if diems.diem15ps else 'N/A' }}</td>
+                        <td>{{ diems.diem1t.Diem1T if diems.diem1t else 'N/A' }}</td>
+                        <td>{{ diems.diemthi.DiemThi if diems.diemthi else 'N/A' }}</td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    {% endif %}
+</div>
